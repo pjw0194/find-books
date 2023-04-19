@@ -9,6 +9,9 @@ export default function NavBar() {
         <Link href="/" legacyBehavior>
           <a className={router.pathname === "/" ? "active" : ""}>Home</a>
         </Link>
+        <Link href="/enter" legacyBehavior>
+          <a className={router.pathname === "/enter" ? "active" : ""}>Enter</a>
+        </Link>
       </div>
       <style jsx>{`
         nav {

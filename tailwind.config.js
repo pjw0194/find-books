@@ -15,7 +15,13 @@ module.exports = {
       aspectRatio: {
         "9/14": "9 / 14",
       },
+      minWidth: {
+        "1/2": "50%",
+      },
+      width: {
+        128: "32rem",
+      },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };

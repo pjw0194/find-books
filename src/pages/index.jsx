@@ -1,7 +1,6 @@
 import Seo from "@component/components/Seo";
 
 export default function Home({ results }) {
-  console.log(results);
   return (
     <div className="px-10">
       <Seo title="Home"></Seo>
