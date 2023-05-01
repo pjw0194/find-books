@@ -11,8 +11,39 @@ datasource db {
 model User {
   id        Int      @id @default(autoincrement())
   name      String
-  phone     Int?     @unique
+  phone     String?  @unique
   email     String?  @unique
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  tokens    Token[]
+}
+
+model Token {
+  id        Int      @id @default(autoincrement())
+  payload   String   @unique
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+}
+
+model Book {
+  isbn         BigInt         @id
+  bookTitle    String         @unique
+  imageUrl     String         @unique
+  author       String
+  description  String
+  PurchaseLink PurchaseLink[]
+}
+
+model PurchaseLink {
+  id       Int    @id @default(autoincrement())
+  book     Book   @relation(fields: [bookIsbn], references: [isbn], onDelete: Cascade)
+  bookIsbn BigInt
+  name     String
+  url      String @db.VarChar(1024)
+
+  @@index([bookIsbn])
 }

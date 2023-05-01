@@ -6,7 +6,7 @@ const nextConfig = {
     return [
       {
         source: "/api/books",
-        destination: `https://api.nytimes.com/svc/books/v3//lists/full-overview.json?api-key=${API_KEY}`,
+        destination: `https://api.nytimes.com/svc/books/v3/lists/full-overview.json?api-key=${API_KEY}`,
       },
     ];
   },
